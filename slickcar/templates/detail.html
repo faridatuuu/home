@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block banner %}{% include 'banner.html' %}{% endblock banner %}
+{% block header %}{% include 'header.html' %} {% endblock header %}
+{% block content %}
+
+<!-- content section  -->
+<div class="card  container  detail" data-aos="flip-down">
+  <div class="row g-0 detrow">
+    <div class="col-12 col-md-7 det">
+      <img src="{{cardet.picture.url}}" class="img-fluid rounded-start" alt="...">
+      <i class="bi bi-fuel-pump-diesel-fill"></i>
+      <i class="bi bi-car-front-fill"></i>
+      <i class="bi bi-speedometer"></i>
+    </div>
+    <div class="col-12 col-md-5 detinfo">
+      <div class="card-body">
+        <h5 class="card-title text-center pb-3 text-warning">{{cardet.name|title}}</h5>
+        <p class="card-text"><span>model:</span> {{cardet.model|title}}</p>
+        <p class="card-text"><span>make:</span>{{cardet.year}}</p>
+        <p class="card-text"><span>year:</span>{{cardet.year}}</p>
+        <p class="card-text"><span>color:</span>{{cardet.color|title}}</p>
+        <p class="card-text"><span>seats:</span>{{cardet.seats}}</p>
+        <p class="card-text"><span>registered:</span>{{cardet.registered|title}}</p>
+      <div class="text-center but">
+          <p>₦500</p>
+          <form action="{% url 'add_to_cart' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="quantity" value="1">
+                 <input type="hidden" name="carid" value="{{cardet.id}}">
+                <button type="submit" class="btn btn-danger">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+<!-- content section done  -->
+{% endblock content %}
+  {% block footer %} {% include 'footer.html' %}{% endblock footer %}

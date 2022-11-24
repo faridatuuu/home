@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block banner %}{% include 'banner.html' %}{% endblock banner %}
+{% block header %}{% include 'header.html' %} {% endblock header %}
+{% block content %}
+
+<!-- content section  -->
+<div class="container contact mt-5" data-aos="flip-right">
+  <h1 class="text-center mb-5">contact us</h1>
+  <div class="row"> 
+    <div class="col-12 col-md-6">
+    <form action="{% url 'contact' %}" method="POST">
+      {% csrf_token %}
+      <div class="form-outline mb-2">
+        <input type="text" name="name" id="form4Example1" class="form-control" />
+        <label class="form-label" for="form4Example1">Name</label>
+      </div>
+      <div class="form-outline mb-2">
+        <input type="email" name="email" id="form4Example2" class="form-control" />
+        <label class="form-label" for="form4Example2">Email address</label>
+      </div>
+      <div class="form-outline mb-2">
+        <textarea name="message" class="form-control" id="form4Example3" rows="4"></textarea>
+        <label class="form-label" for="form4Example3">Message</label>
+      </div>
+      <button type="submit" class="btn btn-danger btn-block mb-4">Send</button>
+    </form>
+    </div>
+    <div class="col-12 col-md-6">
+      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253691.85861065134!2d3.223437961274314!3d6.529857233489781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9228fa2a3999%3A0xd7a8324bddbba1f0!2sIkeja!5e0!3m2!1sen!2sng!4v1663840986079!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+<!-- content section done  -->
+{% endblock content %}
+  {% block footer %} {% include 'footer.html' %}{% endblock footer %}
