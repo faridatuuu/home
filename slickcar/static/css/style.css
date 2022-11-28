@@ -260,24 +260,6 @@ body{
     background: rgb(255, 186, 57) !important;
     color: black !important;
 }
-.pass{
-    position: relative;
-}
-.show{
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    cursor: pointer;
-}
-.show .bi-eye-fill{
-    display: none;
-}
-.show.hide .bi-eye-fill{
-    display: block;
-}
-.show.hide .bi-eye-slash-fill{
-    display: none;
-}
 /* styling register done  */
 
 /* styling cart  */
